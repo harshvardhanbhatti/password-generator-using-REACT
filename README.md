@@ -1,7 +1,7 @@
 # Password Generator
 
 This project is a simple password generator built using [React](https://reactjs.org/) and [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
-![Alt text](src/assets/Screenshot 2024-06-23 at 9.38.29 PM.png)
+![Screenshot 2024-06-23 at 9.38.29 PM.png](src%2Fassets%2FScreenshot%202024-06-23%20at%209.38.29%E2%80%AFPM.png)
 ## Features
 
 - **Password Length**: Customize the length of the generated password.
