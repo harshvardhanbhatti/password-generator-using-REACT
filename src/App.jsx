@@ -11,6 +11,22 @@ function App() {
 
     const passwordRef = useRef(null)
 
+    const downloadPassword = useCallback(() => {
+  if (!password) return;
+  const content = `Generated Password:\n${password}\n\nLength: ${length}\nGenerated at: ${new Date().toLocaleString()}`;
+  
+  const blob = new Blob([content], { type: "text/plain" });
+  const url = URL.createObjectURL(blob);
+  
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "password.txt";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}, [password, length]);
+
     const passwordGenerator = useCallback(() => {
         let password = ''
         let str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
@@ -106,6 +122,14 @@ function App() {
 
                       <label htmlFor="charAllowed">Characters</label>
                   </div>
+                  
+                <button
+                onClick={downloadPassword}
+                className="px-3 py-2 bg-green-500 text-white rounded-xl hover:bg-green-600"
+                >
+                Download
+                </button>
+
 
                 
     
